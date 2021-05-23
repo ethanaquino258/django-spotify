@@ -1,0 +1,16 @@
+<form method="POST">
+    {% csrf_token %}
+    <p>Please input username</p>
+    <input name='username'>
+    <button type='submit'>submit</button>
+</form>
+
+{% if results %}
+<div class="list" id="recently-played">
+    <ol>
+        {% for track in results %}
+        <li>{{track.name}}</li>
+        {% endfor %}
+    </ol>
+</div>
+{% endif %}
