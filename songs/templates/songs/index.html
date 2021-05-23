@@ -1,0 +1,17 @@
+<div id="auth-block">
+    <form method="POST">
+        {% csrf_token %}
+        <input name="username">
+        <button type="submit">submit</button>
+    </form>
+</div>
+
+{% if results %}
+<div class="list" id="top-songs">
+    <ol>
+        {% for track in results %}
+        <li>{{track.name}}</li>
+        {% endfor %}
+    </ol><hr>
+</div>
+{% endif %}
