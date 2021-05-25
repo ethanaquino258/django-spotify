@@ -7,13 +7,17 @@ from .forms import termForm
 
 # Create your views here.
 def index(request):
-    return render(request, 'songs/index.html')
+    if request.method == 'POST':
+        request.session['username'] = request.POST.get('username')
+        return render(request, 'songs/index.html', {'results': request.session['username']})
+    else:
+        return render(request, 'songs/index.html')
 
 def topTracks(request):
     if request.method == 'POST':
         form = termForm(request.POST)
         if form.is_valid():
-            client = authCode("user-top-read playlist-modify-public", request.POST.get('username'))
+            client = authCode("user-top-read playlist-modify-public", request.session['username'])
             results = client.current_user_top_tracks(limit=50,time_range=request.POST.get('term_length'))
             tracks = results['items']
             return render(request, 'songs/topTracks.html', {'results': tracks})
@@ -23,7 +27,7 @@ def topTracks(request):
 
 def recentlyPlayed(request):
     if request.method == 'POST':
-        client = authCode("user-read-recently-played", request.POST.get('username'))
+        client = authCode("user-read-recently-played", request.session['username'])
         results = client.current_user_recently_played()
         recentResults = results['items']
 
@@ -39,7 +43,7 @@ def topArtists(request):
     if request.method == 'POST':
         form = termForm(request.POST)
         if form.is_valid():
-            client = authCode("user-top-read playlist-modify-public", request.POST.get('username'))
+            client = authCode("user-top-read playlist-modify-public", request.session['username'])
             results = client.current_user_top_artists(limit=50, time_range=request.POST.get('term_length'))
             artists = results['items']
             return render(request, 'songs/topArtists.html', {'results': artists})
