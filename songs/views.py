@@ -7,20 +7,34 @@ from .forms import termForm
 
 # Create your views here.
 def index(request):
-    if request.method == 'POST':
-        request.session['username'] = request.POST.get('username')
-        return render(request, 'songs/index.html', {'results': request.session['username']})
-    else:
-        return render(request, 'songs/index.html')
+    # if request.method == 'POST':
+    request.session['username'] = request.POST.get('username')
+    return render(request, 'songs/index.html', {'results': request.session['username']})
+    # else:
+    #     return render(request, 'songs/index.html')
 
 def topTracks(request):
     if request.method == 'POST':
         form = termForm(request.POST)
+        trackResults = []
         if form.is_valid():
             client = authCode("user-top-read playlist-modify-public", request.session['username'])
             results = client.current_user_top_tracks(limit=50,time_range=request.POST.get('term_length'))
             tracks = results['items']
-            return render(request, 'songs/topTracks.html', {'results': tracks})
+            for track in tracks:
+                rawLink = track['external_urls']['spotify']
+                cutLink = rawLink[8:]
+                splitString = cutLink.split('/')
+                splitString.insert(0, 'https:/')
+                splitString.insert(2, 'embed')
+                embedUrl = '/'.join(splitString)
+                
+                trackItem = {'name': track['name'], 'embed': embedUrl}
+                trackResults.append(trackItem)
+            
+            print(trackResults)
+
+            return render(request, 'songs/topTracks.html', {'results': trackResults})
     else:
         form = termForm()
     return render(request, 'songs/topTracks.html', {'form': form})

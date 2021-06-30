@@ -10,7 +10,10 @@
 <div class="list" id="top-songs">
     <ol>
         {% for track in results %}
-        <li>{{track.name}}</li>
+        <li>
+            {{track.name}}
+        </li>
+        <iframe src="{{track.embed}}" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
         {% endfor %}
     </ol>
 </div>
