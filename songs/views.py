@@ -5,6 +5,15 @@ import spotipy
 from . import authentication
 from .forms import termForm
 
+def embedifyer(url):
+    cutUrl = url[8:]
+    splitUrl = cutUrl.split('/')
+    splitUrl.insert(0, 'https:/')
+    splitUrl.insert(2, 'embed')
+    embedUrl = '/'.join(splitUrl)
+
+    return embedUrl
+
 # Create your views here.
 def index(request):
     # if request.method == 'POST':
@@ -16,23 +25,17 @@ def index(request):
 def topTracks(request):
     if request.method == 'POST':
         form = termForm(request.POST)
-        trackResults = []
         if form.is_valid():
             client = authCode("user-top-read playlist-modify-public", request.session['username'])
             results = client.current_user_top_tracks(limit=50,time_range=request.POST.get('term_length'))
             tracks = results['items']
+
+            trackResults = []
             for track in tracks:
-                rawLink = track['external_urls']['spotify']
-                cutLink = rawLink[8:]
-                splitString = cutLink.split('/')
-                splitString.insert(0, 'https:/')
-                splitString.insert(2, 'embed')
-                embedUrl = '/'.join(splitString)
-                
-                trackItem = {'name': track['name'], 'embed': embedUrl}
+                url = embedifyer(track['external_urls']['spotify'])
+
+                trackItem = {'name': track['name'], 'embed': url}
                 trackResults.append(trackItem)
-            
-            print(trackResults)
 
             return render(request, 'songs/topTracks.html', {'results': trackResults})
     else:
@@ -47,7 +50,10 @@ def recentlyPlayed(request):
 
         tracks = []
         for item in recentResults:
-            tracks.append(item['track'])
+            url = embedifyer(item['track']['external_urls']['spotify'])
+            trackItem = {'name': item['track']['name'], 'embed': url}
+
+            tracks.append(trackItem)
 
         return render(request, 'songs/recentlyPlayed.html', {'results': tracks})
     else:
@@ -59,7 +65,15 @@ def topArtists(request):
         if form.is_valid():
             client = authCode("user-top-read playlist-modify-public", request.session['username'])
             results = client.current_user_top_artists(limit=50, time_range=request.POST.get('term_length'))
-            artists = results['items']
+
+            artists = []
+
+            for artist in results['items']:
+                url = embedifyer(artist['external_urls']['spotify'])
+                artistItem = {'name': artist['name'], 'embed': url}
+
+                artists.append(artistItem)
+
             return render(request, 'songs/topArtists.html', {'results': artists})
     else:
         form = termForm()

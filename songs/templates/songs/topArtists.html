@@ -11,6 +11,7 @@
     <ol>
         {% for artist in results %}
         <li>{{artist.name}}</li>
+        <iframe src="{{artist.embed}}" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
         {% endfor %}
     </ol>
 </div>
