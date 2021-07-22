@@ -8,4 +8,5 @@ urlpatterns = [
     path('topTracks/', views.topTracks, name='topTracks'),
     path('recentlyPlayed/', views.recentlyPlayed, name='recentlyPlayed'),
     path('topArtists/', views.topArtists, name='topArtists'),
+    path('libraryRead/', views.libraryRead, name='libraryRead'),
 ]

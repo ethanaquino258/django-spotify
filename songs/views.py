@@ -1,9 +1,15 @@
+from logging import error
+from django.http.response import HttpResponseBadRequest
 from songs.authentication import authCode
 from django.shortcuts import render
 from django.http import HttpResponse
 import spotipy
 from . import authentication
 from .forms import termForm
+from .models import Artist, Song, Genre
+from datetime import datetime, tzinfo
+from django.utils import timezone
+import pytz
 
 def embedifyer(url):
     cutUrl = url[8:]
@@ -78,4 +84,57 @@ def topArtists(request):
     else:
         form = termForm()
     return render(request, 'songs/topArtists.html', {'form': form})
+
+def libraryRead(request):
+    if request.method == 'POST':
+        client = authCode("user-library-read", request.session['username'])
+        results = client.current_user_saved_tracks()
+        tracks = results['items']
+
+        while results['next']:
+            results = client.next(results)
+            tracks.extend(results['items'])
+
+        for item in tracks:
+            timeAdded = item['added_at'][:-1]
+            itemTime = datetime.strptime(timeAdded, "%Y-%m-%dT%H:%M:%S")
+
+            # print(itemTime < mostRecent)
+            # if itemTime < mostRecent:
+            #     break
+
+            trackObj = item['track']
+
+            print(trackObj['name'])
+            
+            s, created = Song.objects.update_or_create(name = trackObj['name'], uri = trackObj['uri'], time_added = itemTime)
+
+            for artist in trackObj['artists']:
+                artistResult = client.artist(artist['id'])
+                print(artist['name'])
+
+                if artistResult['genres'] == []:
+                    genreResult = ['no genre']
+                else:
+                    genreResult = artistResult['genres']
+
+                a, created = Artist.objects.update_or_create(name = artist['name'], uri = artist['uri'])
+                a.occurences += 1
+
+                for genre in genreResult:
+                    g, created = Genre.objects.update_or_create(name = genre)
+                    g.occurences += 1
+                    g.save()
+                    a.genres.add(g)
+
+                a.save()
+
+                s.artists.add(a)
+
+            s.save()
+
+        return render(request, 'songs/libraryRead.html')
+    else:
+        return render(request, 'songs/libraryRead.html')
+        
 
