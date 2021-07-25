@@ -1,0 +1,23 @@
+<form method="POST">
+    {% csrf_token %}
+    <button type='submit'>Read my library</button>
+</form>
+
+{% if results %}
+<div>
+    <h3>Success!</h3>
+    <a href="{% url 'library:topGenres' %}">See my most liked genres</a>
+    <a href="{% url 'library:topArtists' %}">See my most liked artists</a>
+    <div>
+        {% for song in results %}
+        <li>{{song.name}}</li>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+{% if error %}
+<div>
+    <h3>Wah wah wah waaah</h3>
+</div>
+{% endif %}

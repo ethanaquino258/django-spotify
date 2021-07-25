@@ -1,0 +1,30 @@
+<form method="POST">
+    {% csrf_token %}
+    <button type='submit'>See my most liked artists</button>
+</form>
+
+{% if results %}
+<div>
+    <table>
+        <tr>
+            <th>Artist</th>
+            <th>Occurences</th>
+        </tr>
+        {% for item in results %}
+        <tr>
+            <td>{{item.name}}</td>
+            <td>{{item.occurences}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endif %}
+
+{% if error %}
+<div>
+    <h3>
+        Failed to retrieve.
+        <a href="{% url 'library:libraryRead' %}">try loading your library</a>
+    </h3>
+</div>
+{% endif %}

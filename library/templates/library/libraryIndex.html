@@ -1,0 +1,18 @@
+
+<form method="POST">
+    {% csrf_token %}
+    <input name='username' placeholder="input username">
+    <button>submit</button>
+</form>
+
+{% if results %}
+<p>Username received!</p>
+
+<h1 class='introduction'>What would you like to do?</h1>
+<ul class='unordered'>
+    <li><a href="{% url 'library:libraryRead' %}">Read my library</a></li>
+    <li><a href="{% url 'library:topGenres' %}">Show me my top genres</a></li>
+    <li><a href="{% url 'library:topArtists' %}">Show me my top artists</a></li>
+</ul>
+
+{% endif %}
