@@ -1,30 +1,38 @@
-<form method="POST">
-    {% csrf_token %}
-    <button type='submit'>See my most liked artists</button>
-</form>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'library/css/skeleton.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'library/css/normalize.css' %}">
+    </head>
 
-{% if results %}
-<div>
-    <table>
-        <tr>
-            <th>Artist</th>
-            <th>Occurences</th>
-        </tr>
-        {% for item in results %}
-        <tr>
-            <td>{{item.name}}</td>
-            <td>{{item.occurences}}</td>
-        </tr>
-        {% endfor %}
-    </table>
-</div>
-{% endif %}
-
-{% if error %}
-<div>
-    <h3>
-        Failed to retrieve.
-        <a href="{% url 'library:libraryRead' %}">try loading your library</a>
-    </h3>
-</div>
-{% endif %}
+    <body>
+        <form method="POST">
+            {% csrf_token %}
+            <button type='submit'>See my most liked artists</button>
+        </form>
+        
+        {% if results %}
+        <div>
+            <table class="u-full-width">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Artist</th>
+                        <th>Occurences</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in results %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.occurences}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+    </body>
+</html>

@@ -67,10 +67,10 @@ def libraryRead(request):
                 s.artists.add(a)
 
             s.save()
-            
+
         return render(request, 'library/libraryRead.html', {'results': Song.objects.all()[:100]})
     except:
-        return HttpResponseBadRequest()
+        return HttpResponseBadRequest('Something went wrong!')
 
 def topGenres(request):
     if len(Genre.objects.order_by('-occurences')[:50]) < 1:
