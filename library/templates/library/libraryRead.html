@@ -1,17 +1,159 @@
-<form method="POST">
-    {% csrf_token %}
-    <button type='submit'>Read my library</button>
-</form>
+<!DOCTYPE html>
 
-{% if results %}
-<div>
-    <h3>Success!</h3>
-    <a href="{% url 'library:topGenres' %}">See my most liked genres</a>
-    <a href="{% url 'library:topArtists' %}">See my most liked artists</a>
-    <div>
-        {% for song in results %}
-        <li>{{song.name}}</li>
-        {% endfor %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'library/skeleton.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'library/normalize.css' %}">
+<link rel='stylesheet' type="text/css" href="{% static 'library/libraryRead.css' %}">
+
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <button type='submit'>Read my library</button>
+    </form>
+
+    {% if results %}
+    <h3 id='song_header'>Songs</h3>
+    <div class='table-list'>
+        <table class='u-full-width' id='song_table'>
+            <thead>
+                <th>Name</th>
+                <th>Artist</th>
+                <th>Genres</th>
+            </thead>
+            {% for song in results %}
+            <tbody class='song-row'>
+                <td>{{ song.name }}</td>
+                <td>{{ song.artists }}</td>
+                <td>{{ song.genres }}</td>
+            </tbody>
+            {% endfor %}
+        </table>
     </div>
-</div>
-{% endif %}
+
+    <h3 id='genre_header'>Genres</h3>
+    <div class='table-list'>
+        <table id='genre_table'>
+            <thead>
+                <th>Name</th>
+                <th>Occurences</th>
+            </thead>
+            {% for genre in genres %}
+            <tbody>
+                <td>{{ genre.name }}</td>
+                <td>{{ genre.occurrences }}</td>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+
+    <label>Make a genre playlist:</label>
+    <input id='genre_input' type="text" name="selectedGenre" placeholder="rock">
+
+    {% endif %}
+
+    <script>
+        var songHeader = document.getElementById('song_header');
+        songHeader.addEventListener("click", () => collapseTable(songHeader));
+
+        // songHeader.addEventListener("click", collapseTable(songHeader));
+        // this triggers the function immediately, as the function is invoked when called this way
+
+        // songHeader.addEventListener("click", () => collapseTable(songHeader));
+        // this is a callback function. controls event triggering when u dont want it to.
+        // basically wrapped collapseTable inside another function
+
+        // () {
+        //     collapsetable func
+        // }
+
+        var genreHeader = document.getElementById('genre_header');
+        genreHeader.addEventListener("click", () => collapseTable(genreHeader));
+
+        function collapseTable(element) {
+            console.log('triggered')
+            var collapsee = element.nextElementSibling;
+            if (collapsee.style.display == 'none') {
+                collapsee.style.display = 'block';
+            } else {
+                collapsee.style.display = 'none';
+            }
+        }
+
+        function autoComplete(inp, arr) {
+            var currentFocus;
+
+            inp.addEventListener("input", function (e) {
+                var a, b, i, val = this.value;
+                closeAllLists();
+                if (!val) { return false; }
+                currentFocus = -1;
+                a = document.createElement("DIV");
+                a.setAttribute("id", this.id + "autocomplete-list");
+                a.setAttribute("class", "autocomplete-items");
+                this.parentNode.appendChild(a)
+                for (i = 0; i < arr.length; i++) {
+                    if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+                        b = document.createElement("DIV");
+                        b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "<strong>";
+                        b.innerHTML += arr[i].substr(val.length);
+                        b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+                        b.addEventListener("click", (e) => {
+                            inp.value = this.getElementsByTagName("input")[0].value;
+                            closeAllLists();
+                        });
+                        a.appendChild(b);
+                    }
+                }
+            });
+
+            inp.addEventListener("keydown", (e) => {
+                var x = document.getElementById(this.id + "autocomplete-list");
+                if (x) x = x.getElementsByTagName('div');
+                if (e.keyCode == 40) {
+                    currentFocus++;
+                    addActive(x);
+                } else if (e.keyCode == 38) {
+                    currentFocus--;
+                    addActive(x);
+                } else if (e.keyCode == 13) {
+                    e.preventDefault();
+                    if (currentFocus > -1) {
+                        if (x) x[currentFocus].click();
+                    }
+                }
+            });
+
+            function addActive(x) {
+                if (!x) return false;
+                removeActive(x);
+                if (currentFocus >= x.length) currentFocus = 0;
+                if (currentFocus < 0) currentFocus = (x.length - 1);
+                x[currentFocus].classList.add("autocomplete-active");
+            }
+
+            function removeActive(x) {
+                for (var i = 0; i < x.length; i++) {
+                    x[i].classList.remove("autocomplete-active");
+                }
+            }
+
+            function closeAllLists(elmnt) {
+                var x = document.getElementsByClassName("autocomplete-items");
+                for (var i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != inp) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+
+            document.addEventListener("click", function (e) {
+                closeAllLists(e.target);
+            });
+        }
+
+        var genreArray =
+            autoComplete(document.getElementById('genre_input'), genreArray)
+    </script>
+</body>
+
+</html>

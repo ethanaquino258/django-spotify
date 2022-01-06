@@ -1,0 +1,168 @@
+                            entry_time          time_addded               artists  ...                                        name    id                                   uri
+0     2021-11-12 03:52:30.663710+00:00  2019-01-30T16:48:47             [Alvvays]  ...                                 Not My Baby  2635  spotify:track:27bBjan9bD8rUESGYqK9a7
+1     2021-11-12 03:49:23.792528+00:00  2020-09-20T00:54:51           [Sam Cooke]  ...  If I Had A Hammer (The Hammer Song) - Live   973  spotify:track:2id34l0FGvHwoKFrz6Y1mP
+2     2021-11-12 03:47:39.949186+00:00  2021-11-01T13:46:59          [Aphex Twin]  ...                             Alberto Balsalm    43  spotify:track:21Phj46KeUHOWyZW9A9b7P
+3     2021-11-12 03:49:44.263506+00:00  2020-08-10T14:06:00           [Green Day]  ...                                          80  1158  spotify:track:3CDkk8OaLtN9bU21G8O1qB
+4     2021-11-12 03:50:20.062839+00:00  2020-05-17T18:52:04                [Guts]  ...                                 Come Closer  1470  spotify:track:3B2B9hUmvgBvHlIVRPMtHN
+...                                ...                  ...                   ...  ...                                         ...   ...                                   ...
+4178  2021-11-12 03:52:42.430327+00:00  2019-01-07T04:27:31            [Coldplay]  ...                                         X&Y  2747  spotify:track:2rxp56vVQp1zzumJ0eHLmw
+4179  2021-11-12 03:49:18.377929+00:00  2020-10-01T17:27:36       [Jorge Ben Jor]  ...             Take It Easy My Brother Charles   926  spotify:track:399Hm1oqfzzQaZRu3CtVMb
+4180  2021-11-12 03:53:50.289764+00:00  2018-01-14T07:11:24          [The Cramps]  ...                                   Human Fly  3378  spotify:track:0ElRzK07sc9eszyk1ea9Ab
+4181  2021-11-12 03:47:54.691986+00:00  2021-06-01T13:39:50  [The Durutti Column]  ...                           Sketch for Summer   165  spotify:track:2oeLt7N1amHZiev27FvKE2
+4182  2021-11-12 03:52:45.566571+00:00  2019-01-07T04:26:30          [Slick Rick]  ...                             Hey Young World  2774  spotify:track:0q29h0PnCnuo7B0xXcg2mp
+
+[4183 rows x 7 columns]
+                            entry_time          time_addded               artists  ...                                        name    id                                   uri
+0     2021-11-13 00:35:20.291351+00:00  2019-01-30T16:48:47             [Alvvays]  ...                                 Not My Baby  2635  spotify:track:27bBjan9bD8rUESGYqK9a7
+1     2021-11-13 00:32:13.686495+00:00  2020-09-20T00:54:51           [Sam Cooke]  ...  If I Had A Hammer (The Hammer Song) - Live   973  spotify:track:2id34l0FGvHwoKFrz6Y1mP
+2     2021-11-13 00:30:28.608446+00:00  2021-11-01T13:46:59          [Aphex Twin]  ...                             Alberto Balsalm    43  spotify:track:21Phj46KeUHOWyZW9A9b7P
+3     2021-11-13 00:32:34.518895+00:00  2020-08-10T14:06:00           [Green Day]  ...                                          80  1158  spotify:track:3CDkk8OaLtN9bU21G8O1qB
+4     2021-11-13 00:33:09.577895+00:00  2020-05-17T18:52:04                [Guts]  ...                                 Come Closer  1470  spotify:track:3B2B9hUmvgBvHlIVRPMtHN
+...                                ...                  ...                   ...  ...                                         ...   ...                                   ...
+4178  2021-11-13 00:35:32.189346+00:00  2019-01-07T04:27:31            [Coldplay]  ...                                         X&Y  2747  spotify:track:2rxp56vVQp1zzumJ0eHLmw
+4179  2021-11-13 00:32:07.135375+00:00  2020-10-01T17:27:36       [Jorge Ben Jor]  ...             Take It Easy My Brother Charles   926  spotify:track:399Hm1oqfzzQaZRu3CtVMb
+4180  2021-11-13 00:36:40.354694+00:00  2018-01-14T07:11:24          [The Cramps]  ...                                   Human Fly  3378  spotify:track:0ElRzK07sc9eszyk1ea9Ab
+4181  2021-11-13 00:30:43.955814+00:00  2021-06-01T13:39:50  [The Durutti Column]  ...                           Sketch for Summer   165  spotify:track:2oeLt7N1amHZiev27FvKE2
+4182  2021-11-13 00:35:35.313960+00:00  2019-01-07T04:26:30          [Slick Rick]  ...                             Hey Young World  2774  spotify:track:0q29h0PnCnuo7B0xXcg2mp
+
+[4183 rows x 7 columns]
+                            entry_time          time_addded               artists  ...                                        name    id                                   uri
+0     2021-11-13 00:35:20.291351+00:00  2019-01-30T16:48:47             [Alvvays]  ...                                 Not My Baby  2635  spotify:track:27bBjan9bD8rUESGYqK9a7
+1     2021-11-13 00:32:13.686495+00:00  2020-09-20T00:54:51           [Sam Cooke]  ...  If I Had A Hammer (The Hammer Song) - Live   973  spotify:track:2id34l0FGvHwoKFrz6Y1mP
+2     2021-11-13 00:30:28.608446+00:00  2021-11-01T13:46:59          [Aphex Twin]  ...                             Alberto Balsalm    43  spotify:track:21Phj46KeUHOWyZW9A9b7P
+3     2021-11-13 00:32:34.518895+00:00  2020-08-10T14:06:00           [Green Day]  ...                                          80  1158  spotify:track:3CDkk8OaLtN9bU21G8O1qB
+4     2021-11-13 00:33:09.577895+00:00  2020-05-17T18:52:04                [Guts]  ...                                 Come Closer  1470  spotify:track:3B2B9hUmvgBvHlIVRPMtHN
+...                                ...                  ...                   ...  ...                                         ...   ...                                   ...
+4178  2021-11-13 00:35:32.189346+00:00  2019-01-07T04:27:31            [Coldplay]  ...                                         X&Y  2747  spotify:track:2rxp56vVQp1zzumJ0eHLmw
+4179  2021-11-13 00:32:07.135375+00:00  2020-10-01T17:27:36       [Jorge Ben Jor]  ...             Take It Easy My Brother Charles   926  spotify:track:399Hm1oqfzzQaZRu3CtVMb
+4180  2021-11-13 00:36:40.354694+00:00  2018-01-14T07:11:24          [The Cramps]  ...                                   Human Fly  3378  spotify:track:0ElRzK07sc9eszyk1ea9Ab
+4181  2021-11-13 00:30:43.955814+00:00  2021-06-01T13:39:50  [The Durutti Column]  ...                           Sketch for Summer   165  spotify:track:2oeLt7N1amHZiev27FvKE2
+4182  2021-11-13 00:35:35.313960+00:00  2019-01-07T04:26:30          [Slick Rick]  ...                             Hey Young World  2774  spotify:track:0q29h0PnCnuo7B0xXcg2mp
+
+[4183 rows x 7 columns]
+                            entry_time          time_addded               artists  ...                                        name    id                                   uri
+0     2021-11-13 00:35:20.291351+00:00  2019-01-30T16:48:47             [Alvvays]  ...                                 Not My Baby  2635  spotify:track:27bBjan9bD8rUESGYqK9a7
+1     2021-11-13 00:32:13.686495+00:00  2020-09-20T00:54:51           [Sam Cooke]  ...  If I Had A Hammer (The Hammer Song) - Live   973  spotify:track:2id34l0FGvHwoKFrz6Y1mP
+2     2021-11-13 05:25:45.361607+00:00  2021-11-01T13:46:59          [Aphex Twin]  ...                             Alberto Balsalm    43  spotify:track:21Phj46KeUHOWyZW9A9b7P
+3     2021-11-13 00:32:34.518895+00:00  2020-08-10T14:06:00           [Green Day]  ...                                          80  1158  spotify:track:3CDkk8OaLtN9bU21G8O1qB
+4     2021-11-13 00:33:09.577895+00:00  2020-05-17T18:52:04                [Guts]  ...                                 Come Closer  1470  spotify:track:3B2B9hUmvgBvHlIVRPMtHN
+...                                ...                  ...                   ...  ...                                         ...   ...                                   ...
+4178  2021-11-13 00:35:32.189346+00:00  2019-01-07T04:27:31            [Coldplay]  ...                                         X&Y  2747  spotify:track:2rxp56vVQp1zzumJ0eHLmw
+4179  2021-11-13 00:32:07.135375+00:00  2020-10-01T17:27:36       [Jorge Ben Jor]  ...             Take It Easy My Brother Charles   926  spotify:track:399Hm1oqfzzQaZRu3CtVMb
+4180  2021-11-13 00:36:40.354694+00:00  2018-01-14T07:11:24          [The Cramps]  ...                                   Human Fly  3378  spotify:track:0ElRzK07sc9eszyk1ea9Ab
+4181  2021-11-13 00:30:43.955814+00:00  2021-06-01T13:39:50  [The Durutti Column]  ...                           Sketch for Summer   165  spotify:track:2oeLt7N1amHZiev27FvKE2
+4182  2021-11-13 00:35:35.313960+00:00  2019-01-07T04:26:30          [Slick Rick]  ...                             Hey Young World  2774  spotify:track:0q29h0PnCnuo7B0xXcg2mp
+
+[4183 rows x 7 columns]
+                            entry_time          time_addded               artists  ...                                        name    id                                   uri
+0     2021-11-13 00:35:20.291351+00:00  2019-01-30T16:48:47             [Alvvays]  ...                                 Not My Baby  2635  spotify:track:27bBjan9bD8rUESGYqK9a7
+1     2021-11-13 00:32:13.686495+00:00  2020-09-20T00:54:51           [Sam Cooke]  ...  If I Had A Hammer (The Hammer Song) - Live   973  spotify:track:2id34l0FGvHwoKFrz6Y1mP
+2     2021-11-13 05:25:45.361607+00:00  2021-11-01T13:46:59          [Aphex Twin]  ...                             Alberto Balsalm    43  spotify:track:21Phj46KeUHOWyZW9A9b7P
+3     2021-11-13 00:32:34.518895+00:00  2020-08-10T14:06:00           [Green Day]  ...                                          80  1158  spotify:track:3CDkk8OaLtN9bU21G8O1qB
+4     2021-11-13 00:33:09.577895+00:00  2020-05-17T18:52:04                [Guts]  ...                                 Come Closer  1470  spotify:track:3B2B9hUmvgBvHlIVRPMtHN
+...                                ...                  ...                   ...  ...                                         ...   ...                                   ...
+4178  2021-11-13 00:35:32.189346+00:00  2019-01-07T04:27:31            [Coldplay]  ...                                         X&Y  2747  spotify:track:2rxp56vVQp1zzumJ0eHLmw
+4179  2021-11-13 00:32:07.135375+00:00  2020-10-01T17:27:36       [Jorge Ben Jor]  ...             Take It Easy My Brother Charles   926  spotify:track:399Hm1oqfzzQaZRu3CtVMb
+4180  2021-11-13 00:36:40.354694+00:00  2018-01-14T07:11:24          [The Cramps]  ...                                   Human Fly  3378  spotify:track:0ElRzK07sc9eszyk1ea9Ab
+4181  2021-11-13 00:30:43.955814+00:00  2021-06-01T13:39:50  [The Durutti Column]  ...                           Sketch for Summer   165  spotify:track:2oeLt7N1amHZiev27FvKE2
+4182  2021-11-13 00:35:35.313960+00:00  2019-01-07T04:26:30          [Slick Rick]  ...                             Hey Young World  2774  spotify:track:0q29h0PnCnuo7B0xXcg2mp
+
+[4183 rows x 7 columns]
+                            entry_time          time_addded         artists  ...                                   uri occurrences                                               uris
+0     2021-11-13 00:35:20.291351+00:00  2019-01-30T16:48:47       [Alvvays]  ...  spotify:track:27bBjan9bD8rUESGYqK9a7         NaN                                                NaN
+1                                  NaN                  NaN             NaN  ...                                   NaN         1.0             [spotify:track:1FvnH3avKvSZRqNM7yCoRc]
+2                                  NaN                  NaN             NaN  ...                                   NaN        21.0  [spotify:track:0oR3QjDrIWqv0wO7025cGY, spotify...
+3     2021-11-13 00:32:34.518895+00:00  2020-08-10T14:06:00     [Green Day]  ...  spotify:track:3CDkk8OaLtN9bU21G8O1qB         NaN                                                NaN
+4     2021-11-13 00:33:09.577895+00:00  2020-05-17T18:52:04          [Guts]  ...  spotify:track:3B2B9hUmvgBvHlIVRPMtHN         NaN                                                NaN
+...                                ...                  ...             ...  ...                                   ...         ...                                                ...
+2812  2021-11-13 00:33:42.313895+00:00  2019-12-24T04:56:26  [Carl Perkins]  ...  spotify:track:7bglJCaprPQTfDfovdJS2h         NaN                                                NaN
+2813  2021-11-13 00:33:59.122909+00:00  2019-11-04T12:35:43     [Jim Croce]  ...  spotify:track:35sNK23iMCXjDsJa42rZDg         NaN                                                NaN
+2814                               NaN                  NaN             NaN  ...                                   NaN         7.0  [spotify:track:1N4ixxhbBH1ClnPdTTsRzz, spotify...
+2815                               NaN                  NaN             NaN  ...                                   NaN         4.0  [spotify:track:0LPODKihyn7XCxFevkE3KY, spotify...
+2816                               NaN                  NaN             NaN  ...                                   NaN       363.0  [spotify:track:008eLsOgs0hhrMfZHPSEgy, spotify...
+
+[2817 rows x 9 columns]
+                            entry_time          time_addded         artists  ...                                   uri occurrences                                               uris
+0     2021-11-13 00:35:20.291351+00:00  2019-01-30T16:48:47       [Alvvays]  ...  spotify:track:27bBjan9bD8rUESGYqK9a7         NaN                                                NaN
+1                                  NaN                  NaN             NaN  ...                                   NaN         1.0             [spotify:track:1FvnH3avKvSZRqNM7yCoRc]
+2                                  NaN                  NaN             NaN  ...                                   NaN        21.0  [spotify:track:0oR3QjDrIWqv0wO7025cGY, spotify...
+3     2021-11-13 00:32:34.518895+00:00  2020-08-10T14:06:00     [Green Day]  ...  spotify:track:3CDkk8OaLtN9bU21G8O1qB         NaN                                                NaN
+4     2021-11-13 00:33:09.577895+00:00  2020-05-17T18:52:04          [Guts]  ...  spotify:track:3B2B9hUmvgBvHlIVRPMtHN         NaN                                                NaN
+...                                ...                  ...             ...  ...                                   ...         ...                                                ...
+2812  2021-11-13 00:33:42.313895+00:00  2019-12-24T04:56:26  [Carl Perkins]  ...  spotify:track:7bglJCaprPQTfDfovdJS2h         NaN                                                NaN
+2813  2021-11-13 00:33:59.122909+00:00  2019-11-04T12:35:43     [Jim Croce]  ...  spotify:track:35sNK23iMCXjDsJa42rZDg         NaN                                                NaN
+2814                               NaN                  NaN             NaN  ...                                   NaN         7.0  [spotify:track:1N4ixxhbBH1ClnPdTTsRzz, spotify...
+2815                               NaN                  NaN             NaN  ...                                   NaN         4.0  [spotify:track:0LPODKihyn7XCxFevkE3KY, spotify...
+2816                               NaN                  NaN             NaN  ...                                   NaN       363.0  [spotify:track:008eLsOgs0hhrMfZHPSEgy, spotify...
+
+[2817 rows x 9 columns]
+                            entry_time          time_addded         artists  ...                                   uri occurrences                                               uris
+0     2021-11-13 00:35:20.291351+00:00  2019-01-30T16:48:47       [Alvvays]  ...  spotify:track:27bBjan9bD8rUESGYqK9a7         NaN                                                NaN
+1                                  NaN                  NaN             NaN  ...                                   NaN         1.0             [spotify:track:1FvnH3avKvSZRqNM7yCoRc]
+2                                  NaN                  NaN             NaN  ...                                   NaN        21.0  [spotify:track:0oR3QjDrIWqv0wO7025cGY, spotify...
+3     2021-11-13 00:32:34.518895+00:00  2020-08-10T14:06:00     [Green Day]  ...  spotify:track:3CDkk8OaLtN9bU21G8O1qB         NaN                                                NaN
+4     2021-11-13 00:33:09.577895+00:00  2020-05-17T18:52:04          [Guts]  ...  spotify:track:3B2B9hUmvgBvHlIVRPMtHN         NaN                                                NaN
+...                                ...                  ...             ...  ...                                   ...         ...                                                ...
+2812  2021-11-13 00:33:42.313895+00:00  2019-12-24T04:56:26  [Carl Perkins]  ...  spotify:track:7bglJCaprPQTfDfovdJS2h         NaN                                                NaN
+2813  2021-11-13 00:33:59.122909+00:00  2019-11-04T12:35:43     [Jim Croce]  ...  spotify:track:35sNK23iMCXjDsJa42rZDg         NaN                                                NaN
+2814                               NaN                  NaN             NaN  ...                                   NaN         7.0  [spotify:track:1N4ixxhbBH1ClnPdTTsRzz, spotify...
+2815                               NaN                  NaN             NaN  ...                                   NaN         4.0  [spotify:track:0LPODKihyn7XCxFevkE3KY, spotify...
+2816                               NaN                  NaN             NaN  ...                                   NaN       363.0  [spotify:track:008eLsOgs0hhrMfZHPSEgy, spotify...
+
+[2817 rows x 9 columns]
+                            entry_time          time_addded               artists  ...                                        name    id                                   uri
+0     2021-11-13 05:51:07.547345+00:00  2019-01-30T16:48:47             [Alvvays]  ...                                 Not My Baby  2635  spotify:track:27bBjan9bD8rUESGYqK9a7
+1     2021-11-13 05:48:00.247209+00:00  2020-09-20T00:54:51           [Sam Cooke]  ...  If I Had A Hammer (The Hammer Song) - Live   973  spotify:track:2id34l0FGvHwoKFrz6Y1mP
+2     2021-11-13 05:46:10.357077+00:00  2021-11-01T13:46:59          [Aphex Twin]  ...                             Alberto Balsalm    43  spotify:track:21Phj46KeUHOWyZW9A9b7P
+3     2021-11-13 05:48:21.574208+00:00  2020-08-10T14:06:00           [Green Day]  ...                                          80  1158  spotify:track:3CDkk8OaLtN9bU21G8O1qB
+4     2021-11-13 05:48:57.109174+00:00  2020-05-17T18:52:04                [Guts]  ...                                 Come Closer  1470  spotify:track:3B2B9hUmvgBvHlIVRPMtHN
+...                                ...                  ...                   ...  ...                                         ...   ...                                   ...
+4178  2021-11-13 05:51:25.842688+00:00  2019-01-07T04:27:31            [Coldplay]  ...                                         X&Y  2747  spotify:track:2rxp56vVQp1zzumJ0eHLmw
+4179  2021-11-13 05:47:55.049457+00:00  2020-10-01T17:27:36       [Jorge Ben Jor]  ...             Take It Easy My Brother Charles   926  spotify:track:399Hm1oqfzzQaZRu3CtVMb
+4180  2021-11-13 05:52:35.077213+00:00  2018-01-14T07:11:24          [The Cramps]  ...                                   Human Fly  3378  spotify:track:0ElRzK07sc9eszyk1ea9Ab
+4181  2021-11-13 05:46:27.165201+00:00  2021-06-01T13:39:50  [The Durutti Column]  ...                           Sketch for Summer   165  spotify:track:2oeLt7N1amHZiev27FvKE2
+4182  2021-11-13 05:51:28.861742+00:00  2019-01-07T04:26:30          [Slick Rick]  ...                             Hey Young World  2774  spotify:track:0q29h0PnCnuo7B0xXcg2mp
+
+[4183 rows x 7 columns]
+                            entry_time          time_addded                artists  ...                                   uri occurrences                                               uris
+0     2021-11-13 05:51:07.547345+00:00  2019-01-30T16:48:47              [Alvvays]  ...  spotify:track:27bBjan9bD8rUESGYqK9a7         NaN                                                NaN
+1                                  NaN                  NaN                    NaN  ...                                   NaN        22.0  [spotify:track:0Q0IVlqMV64kNLlwjPj0Hl, spotify...
+2                                  NaN                  NaN                    NaN  ...                                   NaN         9.0  [spotify:track:0S8LgLoseDB6W2HWd1ym6P, spotify...
+3     2021-11-13 05:48:21.574208+00:00  2020-08-10T14:06:00            [Green Day]  ...  spotify:track:3CDkk8OaLtN9bU21G8O1qB         NaN                                                NaN
+4     2021-11-13 05:48:57.109174+00:00  2020-05-17T18:52:04                 [Guts]  ...  spotify:track:3B2B9hUmvgBvHlIVRPMtHN         NaN                                                NaN
+...                                ...                  ...                    ...  ...                                   ...         ...                                                ...
+2826  2021-11-13 05:51:45.700720+00:00  2018-08-27T04:39:32         [Travis Scott]  ...  spotify:track:1xYpVRspgaLxdJLOTQkTjg         NaN                                                NaN
+2827                               NaN                  NaN                    NaN  ...                                   NaN         1.0             [spotify:track:4JsMpgsep6XpuHSzKCTxCz]
+2828  2021-11-13 05:51:57.878053+00:00  2018-08-19T02:53:43            [Rodríguez]  ...  spotify:track:6pmDqTidfGwyMtUXPogaOM         NaN                                                NaN
+2829  2021-11-13 05:51:10.536038+00:00  2019-01-27T18:05:02                 [Ween]  ...  spotify:track:2rBPpHo5abuVGgJJjDWKjG         NaN                                                NaN
+2830  2021-11-13 05:48:24.901259+00:00  2020-08-07T15:51:40  [The Everly Brothers]  ...  spotify:track:214mq2oawckYKpnAOC1h1q         NaN                                                NaN
+
+[2831 rows x 9 columns]
+                            entry_time          time_addded               artists  ...                                        name    id                                   uri
+0     2021-11-13 06:10:46.596571+00:00  2019-01-30T16:48:47             [Alvvays]  ...                                 Not My Baby  2635  spotify:track:27bBjan9bD8rUESGYqK9a7
+1     2021-11-13 06:07:39.662426+00:00  2020-09-20T00:54:51           [Sam Cooke]  ...  If I Had A Hammer (The Hammer Song) - Live   973  spotify:track:2id34l0FGvHwoKFrz6Y1mP
+2     2021-11-13 06:05:56.165077+00:00  2021-11-01T13:46:59          [Aphex Twin]  ...                             Alberto Balsalm    43  spotify:track:21Phj46KeUHOWyZW9A9b7P
+3     2021-11-13 06:08:00.761192+00:00  2020-08-10T14:06:00           [Green Day]  ...                                          80  1158  spotify:track:3CDkk8OaLtN9bU21G8O1qB
+4     2021-11-13 06:08:36.083506+00:00  2020-05-17T18:52:04                [Guts]  ...                                 Come Closer  1470  spotify:track:3B2B9hUmvgBvHlIVRPMtHN
+...                                ...                  ...                   ...  ...                                         ...   ...                                   ...
+4178  2021-11-13 06:10:57.361666+00:00  2019-01-07T04:27:31            [Coldplay]  ...                                         X&Y  2747  spotify:track:2rxp56vVQp1zzumJ0eHLmw
+4179  2021-11-13 06:07:34.504582+00:00  2020-10-01T17:27:36       [Jorge Ben Jor]  ...             Take It Easy My Brother Charles   926  spotify:track:399Hm1oqfzzQaZRu3CtVMb
+4180  2021-11-13 06:12:07.008222+00:00  2018-01-14T07:11:24          [The Cramps]  ...                                   Human Fly  3378  spotify:track:0ElRzK07sc9eszyk1ea9Ab
+4181  2021-11-13 06:06:10.842407+00:00  2021-06-01T13:39:50  [The Durutti Column]  ...                           Sketch for Summer   165  spotify:track:2oeLt7N1amHZiev27FvKE2
+4182  2021-11-13 06:11:00.443003+00:00  2019-01-07T04:26:30          [Slick Rick]  ...                             Hey Young World  2774  spotify:track:0q29h0PnCnuo7B0xXcg2mp
+
+[4183 rows x 7 columns]
+                            entry_time          time_addded               artists  ...                                        name    id                                   uri
+0     2021-11-14 20:46:16.758253+00:00  2019-01-30T16:48:47             [Alvvays]  ...                                 Not My Baby  2635  spotify:track:27bBjan9bD8rUESGYqK9a7
+1     2021-11-14 20:43:06.439362+00:00  2020-09-20T00:54:51           [Sam Cooke]  ...  If I Had A Hammer (The Hammer Song) - Live   973  spotify:track:2id34l0FGvHwoKFrz6Y1mP
+2     2021-11-14 20:41:21.562128+00:00  2021-11-01T13:46:59          [Aphex Twin]  ...                             Alberto Balsalm    43  spotify:track:21Phj46KeUHOWyZW9A9b7P
+3     2021-11-14 20:43:27.695076+00:00  2020-08-10T14:06:00           [Green Day]  ...                                          80  1158  spotify:track:3CDkk8OaLtN9bU21G8O1qB
+4     2021-11-14 20:44:03.841505+00:00  2020-05-17T18:52:04                [Guts]  ...                                 Come Closer  1470  spotify:track:3B2B9hUmvgBvHlIVRPMtHN
+...                                ...                  ...                   ...  ...                                         ...   ...                                   ...
+4178  2021-11-14 20:46:28.093503+00:00  2019-01-07T04:27:31            [Coldplay]  ...                                         X&Y  2747  spotify:track:2rxp56vVQp1zzumJ0eHLmw
+4179  2021-11-14 20:43:00.832196+00:00  2020-10-01T17:27:36       [Jorge Ben Jor]  ...             Take It Easy My Brother Charles   926  spotify:track:399Hm1oqfzzQaZRu3CtVMb
+4180  2021-11-14 20:47:37.782998+00:00  2018-01-14T07:11:24          [The Cramps]  ...                                   Human Fly  3378  spotify:track:0ElRzK07sc9eszyk1ea9Ab
+4181  2021-11-14 20:41:36.755531+00:00  2021-06-01T13:39:50  [The Durutti Column]  ...                           Sketch for Summer   165  spotify:track:2oeLt7N1amHZiev27FvKE2
+4182  2021-11-14 20:46:31.225096+00:00  2019-01-07T04:26:30          [Slick Rick]  ...                             Hey Young World  2774  spotify:track:0q29h0PnCnuo7B0xXcg2mp
+
+[4183 rows x 7 columns]

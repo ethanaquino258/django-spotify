@@ -3,93 +3,154 @@ from os import error
 from django.http.response import HttpResponseBadRequest
 from songs.authentication import authCode
 from django.shortcuts import render
-from .models import Artist, Song, Genre
-from datetime import datetime
+from datetime import datetime, timezone
 import pytz
+import boto3
+from botocore.exceptions import ClientError
+import pandas as pd
+from dynamodb_json import json_util as json
 
-# Create your views here.
+
+def connectToDB():
+    try:
+        ddb = boto3.client('dynamodb', endpoint_url='http://localhost:3000')
+    except ClientError as e:
+        print(e)
+        exit()
+    return ddb
+
+
 def libraryIndex(request):
     request.session['username'] = request.POST.get('username')
     return render(request, 'library/libraryIndex.html', {'results': request.session['username']})
 
+
 def libraryRead(request):
-    client = authCode("user-library-read", request.session['username'])
+    username = request.session['username']
+    dynamoClient = connectToDB()
+    print('connected')
+    dbCheck = dynamoClient.list_tables()
+
+    if f'{username}_library' in dbCheck['TableNames']:
+        result = dynamoClient.scan(TableName=f'{username}_library')
+        genres = dynamoClient.scan(TableName=f'{username}_genres')
+        if result['Count'] > 0:
+            return render(request, 'library/libraryRead.html', {'results': json.loads(result['Items']), 'genres': json.loads(genres['Items'])})
+
+    client = authCode("user-library-read", username)
     results = client.current_user_saved_tracks()
     tracks = results['items']
 
+    while results['next']:
+        results = client.next(results)
+        tracks.extend(results['items'])
+
+    trackTotal = len(tracks)
+
+    trackCounter = 0
+    # progressMarkers = multiples(trackTotal)
+
     utc = pytz.utc
+    overallGenres = set()
 
-    try:
-        mostRecent = Song.objects.latest('time_added').time_added
-    except Song.DoesNotExist:
-        mostRecent = utc.localize(datetime.strptime("1970-01-01T00:0:00", "%Y-%m-%dT%H:%M:%S"))
-    
-    print(mostRecent)
-    try:
-        while results['next']:
-            results = client.next(results)
-            tracks.extend(results['items'])
+    for item in tracks:
+        # if trackCounter in progressMarkers:
+        #     print(f'{trackCounter}/{trackTotal} analyzed...')
+        artistList = []
+        genreList = set()
 
-        for item in tracks:
-            timeAdded = item['added_at'][:-1]
-            itemTime = utc.localize(datetime.strptime(timeAdded, "%Y-%m-%dT%H:%M:%S"))
+        timeAdded = item['added_at'][:-1]
+        # this outputs 2021-11-11 19:26:58.506135+00:00 format, but i want 2019-01-30T16:48:47 for uniformity. Fix later
+        entryTime = str(datetime.now(timezone.utc))
 
-            print(itemTime < mostRecent)
-            if itemTime < mostRecent:
-                break
+        trackObj = item['track']
+        trackName = trackObj['name']
+        trackUri = trackObj['uri']
+        for artist in trackObj['artists']:
+            artistList.append(artist['name'])
 
-            trackObj = item['track']
+            artistResult = client.artist(artist['id'])
+            if artistResult['genres'] == []:
+                genreResult = ['none']
+            else:
+                genreResult = artistResult['genres']
 
-            print(trackObj['name'])
+            for genre in genreResult:
+                genreList.add(genre)
 
-            s, created = Song.objects.update_or_create(name = trackObj['name'], uri = trackObj['uri'], time_added = itemTime)
+        for genresPerArtist in genreList:
+            for genre in genresPerArtist:
+                overallGenres.add(genre)
 
-            for artist in trackObj['artists']:
-                artistResult = client.artist(artist['id'])
-                print(artist['name'])
+        print(tuple(genreList))
+        try:
+            response = dynamoClient.put_item(
+                TableName=f'{username}_library',
+                Item={
+                    'id': {'N': str(trackCounter)},
+                    'name': {'S': trackName},
+                    'artists': {'SS': artistList},
+                    'genres': {'SS': tuple(genreList)},
+                    'uri': {'S': trackUri},
+                    'time_addded': {'S': timeAdded},
+                    'entry_time': {'S': entryTime}
+                }
+            )
 
-                if artistResult['genres'] == []:
-                    genreResult = ['no genre']
-                else:
-                    genreResult = artistResult['genres']
+            print(f'ITEM ADDED:\n{response}\n')
+            trackCounter += 1
+        except ClientError as e:
+            print(e)
+    result = dynamoClient.scan(TableName=f'{username}_library')
+    genres = dynamoClient.scan(TableName=f'{username}_genres')
+    return render(request, 'library/libraryRead.html', {'results': json.loads(result['Items']), 'genres': json.loads(genres['Items'])})
 
-                a, created = Artist.objects.update_or_create(name = artist['name'], uri = artist['uri'])
-                a.occurences += 1
+# ideally wouldn't need this second read, in prod it would just cost more capacity. Just here for testing + decoupling from the first function, although IDK if strictly necessary.
+# also, prob dont need the df now that i think about it because you can just read the result directly and iterate over that...
+# but hey, it works. next up is the frontend
 
-                for genre in genreResult:
-                    g, created = Genre.objects.update_or_create(name = genre)
-                    g.occurences += 1
-                    g.save()
-                    a.genres.add(g)
 
-                a.save()
+def genreRead(request):
+    username = request.session['username']
+    dynamoClient = connectToDB()
+    print('connected')
+    result = dynamoClient.scan(TableName='aquinyo_library')
+    df = pd.DataFrame(json.loads(result['Items']))
+    print(df, file=open('df.txt', 'a'))
 
-                s.artists.add(a)
+    genreDict = []
+    overallGenres = set()
 
-            s.save()
+    for entry in df.iterrows():
+        print(entry)
+        print(entry[1]['genres'])
+        for genre in entry[1]['genres']:
+            overallGenres.add(genre)
 
-        return render(request, 'library/libraryRead.html', {'results': Song.objects.all()[:100]})
-    except:
-        return HttpResponseBadRequest('Something went wrong!')
+    print(overallGenres)
+    for genre in overallGenres:
+        genreUris = []
+        for entry in df.iterrows():
+            if genre in entry[1]['genres']:
+                genreUris.append(entry[1]['uri'])
 
-def topGenres(request):
-    if len(Genre.objects.order_by('-occurences')[:50]) < 1:
-        return HttpResponseBadRequest('ERROR: Load library first')
-    else:
-        return render(request, 'library/topGenres.html', {'results': Genre.objects.order_by('-occurences')[:50]})
-    # try:
-    #     return render(request, 'library/topGenres.html', {'results': Genre.objects.order_by('-occurences')[:50]})
-    # except:
-    #     return render(request, 'library/topGenres.html', {'error': 'error'})
-        
+        genreObj = {'genre': genre, 'occurrences': len(
+            genreUris), 'uris': genreUris}
+        genreDict.append(genreObj)
 
-def topArtists(request):
-    if len(Artist.objects.order_by('-occurences')[:50]) < 1:
-        return HttpResponseBadRequest('ERROR: Load library first')
-    else:
-        return render(request, 'library/topArtists.html', {'results': Artist.objects.order_by('-occurences')[:50]})
-    # try:
-    #     return render(request, 'library/topArtists.html', {'results': Artist.objects.order_by('-occurences')[:50]})
-    # except:
-    #     print("ERROR")
-    #     return render(request, 'library/topArtists.html', {'error': 'error'})
+    idCount = 0
+    for entry in genreDict:
+        try:
+            response = dynamoClient.put_item(
+                TableName=f'{username}_genres',
+                Item={
+                    'id': {'N': str(idCount)},
+                    'name': {'S': entry['genre']},
+                    'occurrences': {'N': str(entry['occurrences'])},
+                    'uris': {'SS': entry['uris']}
+                }
+            )
+            print(f'ITEM ADDED:\n{response}\n')
+            idCount += 1
+        except ClientError as e:
+            print(e)
